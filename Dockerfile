@@ -141,7 +141,8 @@ ENV BASH_ENV=/usr/local/bin/ace_env.sh
 # ***** Standard Operating Environment Set Up - FIXED CONFIGURATION START *****
 ENV BAR1=SoE.bar
 
-COPY --chown=aceuser ./binary/$BAR1 /tmp
+#DA COPY --chown=aceuser ./binary/$BAR1 /tmp
+COPY --chown=aceuser ./11.0.0.2/binary/$BAR1 /tmp
 
 # Unzip the BAR file; need to use bash to make the profile work
 
