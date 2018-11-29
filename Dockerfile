@@ -109,7 +109,8 @@ RUN export DEBIAN_FRONTEND=noninteractive \
   # Copy in script files
 
 
- COPY ./config/*.sh /usr/local/bin/
+ #DA COPY ./config/*.sh /usr/local/bin/
+ COPY ./11.0.0.2/config/*.sh /usr/local/bin/
 
  RUN chmod +x /usr/local/bin/*.sh
 
@@ -153,7 +154,8 @@ RUN bash -c 'mqsibar -w /home/aceuser/ace-server -a /tmp/$BAR1 -c'
 # example for testing against MQ on Cloud
 #RUN bash -c 'mqsisetdbparms -w /home/aceuser/ace-server -n MQ::mq1 -u mquseroncloud -p d2_kuslE-ppRTU-BbtEisB5vlruhBhj0CrUGDpXNbtxH'
 
-COPY ./config/server.conf.yaml /home/aceuser/ace-server/
+#DA COPY ./config/server.conf.yaml /home/aceuser/ace-server/
+COPY ./11.0.0.2/config/server.conf.yaml /home/aceuser/ace-server/
 
 # Switch off the admin REST API for the server run, as we won't be deploying anything after start
 RUN sed -i 's/adminRestApiPort/#adminRestApiPort/g' /home/aceuser/ace-server/server.conf.yaml 
