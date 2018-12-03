@@ -159,7 +159,7 @@ RUN bash -c 'mqsibar -w /home/aceuser/ace-server -a /tmp/$BAR1 -c'
 COPY ./11.0.0.2/config/server.conf.yaml /home/aceuser/ace-server/
 
 # Switch off the admin REST API for the server run, as we won't be deploying anything after start
-RUN sed -i 's/adminRestApiPort/#adminRestApiPort/g' /home/aceuser/ace-server/server.conf.yaml 
+#DA RUN sed -i 's/adminRestApiPort/#adminRestApiPort/g' /home/aceuser/ace-server/server.conf.yaml 
 
 # ***** Standard Operating Environment Set Up - FIXED CONFIGURATION END   *****
 
