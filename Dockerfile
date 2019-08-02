@@ -83,7 +83,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
   && echo "deb [trusted=yes] file:${DIR_DEB} ./" > /etc/apt/sources.list.d/IBM_MQ.list \
   # Install MQ using the DEB packages
   && apt-get update \
-  && apt-get install -y $MQ_PACKAGES \
+  #&& apt-get install -y $MQ_PACKAGES \
   # Remove 32-bit libraries from 64-bit container
   && find /opt/mqm /var/mqm -type f -exec file {} \; \
     | awk -F: '/ELF 32-bit/{print $1}' | xargs --no-run-if-empty rm -f \
