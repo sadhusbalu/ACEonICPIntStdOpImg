@@ -16,7 +16,7 @@ WORKDIR /opt/ibm
 
 # ***** Set your path to installation images
 #ENV PATH_TO_MQ_IMAGE=http://9.192.234.35/~peterajessup/files
-ENV PATH_TO_MQ_IMAGE=http://172.23.50.125/iib10/
+ENV PATH_TO_MQ_IMAGE=http://public.dhe.ibm.com/ibmdl/export/pub/software/websphere/integration/
 
 
 # Install ACE V11 Developer Edition
@@ -62,7 +62,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
   && export DIR_EXTRACT=/tmp/mq \
   && mkdir -p ${DIR_EXTRACT} \
   && cd ${DIR_EXTRACT} \
-  && curl -LO $MQ_URL \
+  #&& curl -LO $MQ_URL \
   && tar -zxvf ./*.tar.gz \
   # Recommended: Remove packages only needed by this script
   && apt-get purge -y \
