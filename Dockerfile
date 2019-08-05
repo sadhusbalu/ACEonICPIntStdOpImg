@@ -1,4 +1,4 @@
-﻿# © Copyright IBM Corporation 2018.
+# © Copyright IBM Corporation 2018.
 #
 # All rights reserved. This program and the accompanying materials
 # are made available under the terms of the Eclipse Public License v2.0
@@ -36,7 +36,7 @@ RUN apt update && apt -y install --no-install-recommends curl rsyslog sudo \
 
  RUN chmod +x /usr/local/bin/*.sh
 
- RUN /usr/local/bin/setup_var_mqm.sh
+ #RUN /usr/local/bin/setup_var_mqm.sh
 
 # Configure ace system
 RUN echo "ACE_11:" > /etc/debian_chroot \
