@@ -52,7 +52,7 @@ RUN echo "ACE_11:" > /etc/debian_chroot \
 
 
 # Create a user to run as, create the ace workdir, and chmod script files
-RUN useradd --create-home --home-dir /home/aceuser -G mqbrkrs,sudo,mqm aceuser \
+RUN useradd --create-home --home-dir /home/aceuser -G sudo aceuser \
   && sed -e 's/^%sudo	.*/%sudo	ALL=NOPASSWD:ALL/g' -i /etc/sudoers \
   && su - aceuser -c '. /opt/ibm/ace-11.0.0.2/server/bin/mqsiprofile && mqsicreateworkdir /home/aceuser/ace-server' \
   && chmod 755 /usr/local/bin/*
