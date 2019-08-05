@@ -52,7 +52,7 @@ RUN echo "ACE_11:" > /etc/debian_chroot \
 
 
 # Create a user to run as, create the ace workdir, and chmod script files
-RUN useradd --create-home --home-dir /home/aceuser -G sudo aceuser \
+RUN useradd --create-home --home-dir /home/aceuser -G mqbrkrs,sudo aceuser \
   && sed -e 's/^%sudo	.*/%sudo	ALL=NOPASSWD:ALL/g' -i /etc/sudoers \
   && su - aceuser -c '. /opt/ibm/ace-11.0.0.2/server/bin/mqsiprofile && mqsicreateworkdir /home/aceuser/ace-server' \
   && chmod 755 /usr/local/bin/*
@@ -72,7 +72,11 @@ USER aceuser
 
 WORKDIR /home/aceuser
 
-RUN bash -c 'mqsibar -w /home/aceuser/ace-server -a /tmp/$BAR1 -c'
+RUN bash -c 'pwd'
+
+RUN bash -c 'ls -ltr /usr/local/bin'
+
+RUN bash -c '/usr/local/bin/mqsibar -w /home/aceuser/ace-server -a /tmp/$BAR1 -c'
 
 # example for testing against MQ on Cloud
 #RUN bash -c 'mqsisetdbparms -w /home/aceuser/ace-server -n MQ::mq1 -u mquseroncloud -p d2_kuslE-ppRTU-BbtEisB5vlruhBhj0CrUGDpXNbtxH'
